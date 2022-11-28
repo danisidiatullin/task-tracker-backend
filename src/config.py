@@ -6,7 +6,6 @@ from pydantic import BaseSettings
 
 class Settings(BaseSettings):
     app_name: str = "Task Tracker"
-    sqlalchemy_database_url: str = os.getenv("SQLALCHEMY_DATABASE_URL")
 
     POSTGRES_USER: str = os.getenv("POSTGRES_USER")
     POSTGRES_PASSWORD: str = os.getenv("POSTGRES_PASSWORD")

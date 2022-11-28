@@ -1,6 +1,6 @@
 import sqlalchemy
-from sqlalchemy.ext import declarative
 import sqlalchemy.orm as orm
+from sqlalchemy.ext import declarative
 
 from config import settings
 
@@ -17,4 +17,3 @@ engine = sqlalchemy.create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = orm.sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative.declarative_base()
-
