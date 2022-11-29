@@ -43,9 +43,6 @@ line-length = 120
 profile = "black"
 line_length = 120
 
-[tool.flake8]
-max-line-length = 120
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
