@@ -1,0 +1,11 @@
+name: Flake8
+
+on: [pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pycqa/flake8@stable
+        with:
+          src: "./src"
