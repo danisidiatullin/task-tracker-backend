@@ -6,6 +6,6 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: pycqa/flake8@stable
+      - uses: pycqa/flake8
         with:
           src: "./src"
