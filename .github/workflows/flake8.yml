@@ -1,12 +1,20 @@
-name: Flake8
+name: flake8 Lint
 
-on: [pull_request]
+on: [push, pull_request]
 
 jobs:
-  lint:
+  flake8-lint:
     runs-on: ubuntu-latest
+    name: Lint
     steps:
-      - uses: actions/checkout@v2
-      - uses: pycqa/flake8@main
+      - name: Check out source repository
+        uses: actions/checkout@v3
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
         with:
-          src: "./src"
+          python-version: "3.10"
+      - name: flake8 Lint
+        uses: py-actions/flake8@v2
+        with:
+          max-line-length: "120"
+          path: "src"
