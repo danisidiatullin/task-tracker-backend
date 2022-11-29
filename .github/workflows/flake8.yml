@@ -6,6 +6,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - uses: pycqa/flake8@main
         with:
           src: "./src"
