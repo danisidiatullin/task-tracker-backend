@@ -1,4 +1,5 @@
 pg_data/
+src/.env
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
