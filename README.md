@@ -1,6 +1,6 @@
 for running use this command:
 ```shell
-sudo docker compose --env-file ./src/.env up --build task-tracker-postgres -d
+sudo docker compose up --build task-tracker-postgres -d
 sudo docker compose up --build task-tracker-backend
 ```
 

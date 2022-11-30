@@ -67,7 +67,7 @@ async def get_current_user(
     try:
         payload = jwt.decode(token, secret, algorithms=["HS256"])
         user = db.query(models.User).get(payload["id"])
-    except:
+    except Exception:
         raise fastapi.HTTPException(status_code=401, detail="Invalid Email or Password")
 
     return schemas.User.from_orm(user)
