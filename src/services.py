@@ -44,10 +44,10 @@ async def authenticate_user(email: str, password: str, db: orm.Session):
     user = await get_user_by_email(email, db)
 
     if not user:
-        return False
+        return None
 
     if not user.verify_password(password):
-        return False
+        return None
 
     return user
 
