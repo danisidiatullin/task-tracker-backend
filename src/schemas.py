@@ -22,9 +22,9 @@ class User(UserBase):
 
 
 class StatusEnum(str, Enum):
-    started = "started"
-    pending = "pending"
-    finished = "finished"
+    STARTED = "started"
+    PENDING = "pending"
+    FINISHED = "finished"
 
 
 class TaskBase(pydantic.BaseModel):
@@ -32,7 +32,7 @@ class TaskBase(pydantic.BaseModel):
     description: str
     priority: int
     progress: int
-    status: StatusEnum = StatusEnum.started
+    status: StatusEnum = StatusEnum.STARTED
 
 
 class TaskCreate(TaskBase):
