@@ -44,6 +44,13 @@ line-length = 120
 profile = "black"
 line_length = 120
 
+[tool.pylama]
+format = "pylint,pycodestyle"
+max_line_length = 120
+skip = "*/.tox/*,*/.env/*"
+linters = "mccabe,pycodestyle,pyflakes,isort"
+paths = "src"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
