@@ -20,7 +20,7 @@ class User(database.Base):
 class ChoiceType(types.TypeDecorator):
     impl = types.String
 
-    def __init__(self, choices, **kw):
+    def __init__(self, choices, **kw)  :
         self.choices = dict(choices)
         super(ChoiceType, self).__init__(**kw)
 

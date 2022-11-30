@@ -40,3 +40,6 @@ jobs:
         uses: py-actions/flake8@v2
         with:
           path: "src"
+
+      - name: pylama audit
+        run: poetry run pylama
