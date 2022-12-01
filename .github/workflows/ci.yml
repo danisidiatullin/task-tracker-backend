@@ -33,6 +33,9 @@ jobs:
         run: poetry install
         if: steps.cache.outputs.cache-hit != 'true'
 
+      - name: pylama audit
+        run: poetry run pylama
+
       - name: Code Quality
         run: poetry run black . --check
 
@@ -40,3 +43,4 @@ jobs:
         uses: py-actions/flake8@v2
         with:
           path: "src"
+
