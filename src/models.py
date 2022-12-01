@@ -14,7 +14,7 @@ class User(database.Base):
     tasks = orm.relationship("Task", back_populates="user")
 
     def verify_password(self, password: str):
-        return hash.bcrypt.verify(password, self.hashed_password)
+        return hash.bcrypt.verify(password, str(self.hashed_password))
 
 
 class ChoiceType(types.TypeDecorator):

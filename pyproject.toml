@@ -16,6 +16,8 @@ pyjwt = "^2.6.0"
 bcrypt = "^4.0.1"
 passlib = "^1.7.4"
 python-multipart = "^0.0.5"
+sqlalchemy-stubs = "^0.4"
+types-passlib = "^1.7.7.3"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -51,6 +53,10 @@ max_line_length = 120
 skip = "*/.tox/*,*/.env/*"
 linters = "mccabe,pycodestyle,pyflakes,isort"
 paths = "src"
+
+[tool.mypy]
+plugins = ["sqlmypy"]
+files = "src"
 
 [build-system]
 requires = ["poetry-core"]

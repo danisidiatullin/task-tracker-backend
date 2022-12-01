@@ -31,7 +31,7 @@ async def get_user_by_email(email: str, db: orm.Session):
     return db.query(models.User).filter(models.User.email == email).first()
 
 
-async def create_user(user: schemas.UserCreate, db: orm.Session):
+async def create_user(user: schemas.UserCreate, db: orm.Session) -> models.User:
     user_obj = models.User(email=user.email, hashed_password=hash.bcrypt.hash(user.hashed_password))
     db.add(user_obj)
     db.commit()
@@ -73,12 +73,13 @@ async def get_current_user(
     return schemas.User.from_orm(user)
 
 
-async def create_task(user: schemas.User, db: orm.Session, task: schemas.TaskCreate):
-    task = models.Task(**task.dict(), user_id=user.id)
-    db.add(task)
+async def create_task(user: schemas.User, db: orm.Session, task: schemas.TaskCreate) -> models.Task:
+    task_obj = models.Task(**task.dict(), user_id=user.id)
+    db.add(task_obj)
     db.commit()
-    db.refresh(task)
-    return schemas.Task.from_orm(task)
+    db.refresh(task_obj)
+
+    return task_obj
 
 
 async def get_tasks(user: schemas.User, db: orm.Session):
