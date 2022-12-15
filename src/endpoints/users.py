@@ -9,13 +9,13 @@ router = APIRouter(tags=["users"])
 
 
 @router.post("/api/users")
-async def create_user(user: schemas.UserCreate, db: orm.Session = fastapi.Depends(services.get_db)):
-    db_user = await services.get_user_by_email(user.email, db)
+async def create_user(user_data: schemas.UserCreate, db: orm.Session = fastapi.Depends(services.get_db)):
+    db_user = await services.get_user_by_email(user_data.email, db)
 
     if db_user:
         raise fastapi.HTTPException(status_code=400, detail="Email already created")
 
-    user = await services.create_user(user, db)
+    user = await services.create_user(user_data, db)
 
     return await services.create_token(user)
 
